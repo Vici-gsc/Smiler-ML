@@ -81,8 +81,6 @@ class Fit:
 
         with autocast(enabled=True if self.scaler else False):
             prob = model(x)
-            print(prob.shape)
-            print(y.shape)
             loss = criterion(prob, y)
 
         return loss, prob, y
@@ -95,7 +93,6 @@ class Fit:
         self.model.train()
         self.optimizer.zero_grad()
         for i, data in enumerate(self.train_loader):
-            print(i, data[1].shape)
             loss, prob, target = self.iterate(self.model, data, self.train_criterion)
             loss /= self.grad_accumulation
 
