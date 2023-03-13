@@ -5,9 +5,9 @@ from PIL import Image
 from PIL.Image import DecompressionBombError
 from tqdm import tqdm
 
-root = '/data/korean_emotion/Training/'
-classes = glob('/data/korean_emotion/Training/images/*')
-small_root = '/data/korean_emotion/Training/images_small'
+root = '/data/korean_emotion/Validation/'
+classes = glob('/data/korean_emotion/Validation/images/*')
+small_root = '/data/korean_emotion/Validation/images_small'
 
 if not os.path.exists(small_root):
     os.mkdir(small_root)
@@ -18,9 +18,6 @@ for c in classes:
 
     if not os.path.exists(os.path.join(small_root, class_name)):
         os.mkdir(os.path.join(small_root, class_name))
-    if class_name == 'embarrass' or class_name == 'sad':
-        continue
-    print(c)
     for i, f in tqdm(enumerate(files), total=len(files)):
         try:
             img = Image.open(f)

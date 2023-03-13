@@ -1,0 +1,19 @@
+session_name: generate-facial-images
+windows:
+  - window_name: window
+    layout: tiled
+    panes:
+      - pt save_face_by_class.py -g 4 -c angry -t Validation
+      - pt save_face_by_class.py -g 4 -c embarrass -t Validation
+      - pt save_face_by_class.py -g 4 -c fear -t Validation
+      - pt save_face_by_class.py -g 5 -c happy -t Validation
+      - pt save_face_by_class.py -g 5 -c hurt -t Validation
+      - pt save_face_by_class.py -g 5 -c natural -t Validation
+      - pt save_face_by_class.py -g 5 -c sad -t Validation
+#      - pt save_face_by_class.py -g 5 -c angry -t Training
+#      - pt save_face_by_class.py -g 5 -c embarrass -t Training
+#      - pt save_face_by_class.py -g 5 -c fear -t Training
+#      - pt save_face_by_class.py -g 5 -c happy -t Training
+#      - pt save_face_by_class.py -g 6 -c hurt -t Training
+#      - pt save_face_by_class.py -g 6 -c natural -t Training
+#      - pt save_face_by_class.py -g 6 -c sad -t Training
