@@ -1,0 +1,28 @@
+defaults:
+  - augmentation: base_augmentation
+
+name: KoreanFaceEmotion
+root: /data/korean_emotion
+
+in_channel: 3
+num_classes: 7
+size: 224
+
+train: train
+valid: valid
+test: valid
+
+augmentation:
+  mean: [ 0.5070751592371323, 0.48654887331495095, 0.4409178433670343 ]
+  std: [ 0.2673342858792401, 0.2564384629170883, 0.27615047132568404 ]
+
+  train_resize_mode: RandomResizedCrop
+  train_interpolation: bicubic
+  cutmix: 0.
+  mixup: 0.
+  remode: 0.0
+  re: 0.2
+  auto_aug:
+  crop_pct: 1.0
+
+  test_resize_mode: resize_shorter

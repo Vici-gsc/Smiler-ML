@@ -1,9 +1,9 @@
 defaults:
   - _self_
   - train: base_train
-  - dataset: imagenet
+  - dataset: korean_face_emotion
   - info: info
-  - model: base_model
+  - model: efficientnet_b0
   - benchmark: benchmark
 
 name: experiment0
@@ -13,7 +13,7 @@ distributed: False
 local_rank: 0
 world_size: 1
 port: 3456
-gpus: [ 0 ]
+gpus: [ 3 ]
 
 hydra:
   run:
