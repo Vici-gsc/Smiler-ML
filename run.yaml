@@ -1,0 +1,8 @@
+session_name: face-emotion
+windows:
+  - window_name: window
+    layout: tiled
+    panes:
+      - pt main.py model=regnety_008 gpus=[5] name=sgd0.1
+      - pt main.py model=regnety_008 gpus=[6] name=sgd0.0001 train.lr.lr=0.0001
+      - pt main.py model=regnety_008 gpus=[7] name=adamw5e-5 train.optimizer.opt=adamw train.lr.lr=5e-5
