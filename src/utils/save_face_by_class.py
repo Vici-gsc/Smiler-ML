@@ -34,13 +34,16 @@ save_path = os.path.join(face_root, class_name)
 if not os.path.exists(os.path.join(face_root, class_name)):
     os.mkdir(save_path)
 for i, f in enumerate(tqdm(files)):
+    _, ext = os.path.splitext(f)
+    if os.path.isfile(os.path.join(save_path, f"{i}{ext}")):
+        continue
+
     try:
-        img = Image.open(f)
+        img = Image.open(f).convert('RGB')
 
         if len(detector(np.asarray(img), 1)) < 1:
             img = img.transpose(Image.Transpose.FLIP_TOP_BOTTOM)
 
-        _, ext = os.path.splitext(f)
         face, prob = mtcnn(img, save_path=os.path.join(save_path, f"{i}{ext}"), return_prob=True)
     except OSError as e:
         pass
