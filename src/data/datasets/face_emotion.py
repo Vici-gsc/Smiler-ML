@@ -21,12 +21,12 @@ class KoreanFaceEmotion(Dataset):
         self.y = list()
 
         if mode == 'train':
-            self.root = os.path.join(root, 'Training', 'images')
+            self.root = os.path.join(root, 'train')
         else:
-            self.root = os.path.join(root, 'Validation', 'images')
+            self.root = os.path.join(root, 'test')
 
         for key, value in self.classes.items():
-            image_paths = glob(os.path.join(self.root, key, '*_half.jpg'))
+            image_paths = glob(os.path.join(self.root, key, '*'))
             for path in image_paths:
                 self.x.append(path)
                 self.y.append(value)
