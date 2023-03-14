@@ -3,7 +3,7 @@ defaults:
   - train: base_train
   - dataset: korean_face_emotion
   - info: info
-  - model: efficientnet_b0
+  - model: regnety_008
   - benchmark: benchmark
 
 name: experiment0

@@ -1,4 +1,4 @@
-model_name: efficientnet_b1
+model_name: regnety_008
 pretrained: True
 
 bn_momentum:

@@ -2,7 +2,7 @@ defaults:
   - augmentation: base_augmentation
 
 name: KoreanFaceEmotion
-root: /data/korean_emotion
+root: /data/korean_emotion/Cropped
 
 in_channel: 3
 num_classes: 7
@@ -23,6 +23,6 @@ augmentation:
   remode: 0.0
   re: 0.2
   auto_aug:
-  crop_pct: 1.0
+  crop_pct: 0.95
 
   test_resize_mode: resize_shorter
