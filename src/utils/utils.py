@@ -3,6 +3,7 @@ import logging
 import torch
 import wandb
 from easydict import EasyDict
+from lion_pytorch import Lion
 from timm.loss import BinaryCrossEntropy, SoftTargetCrossEntropy, LabelSmoothingCrossEntropy
 from timm.models import convert_splitbn_model, resume_checkpoint as timm_resume_checkpoint, load_checkpoint
 from timm.optim import create_optimizer_v2, optimizer_kwargs
@@ -36,7 +37,12 @@ def model_tune(model, scaler, device, cfg):
         assert not cfg.train.sync_bn, 'Cannot use SyncBatchNorm with torchscripted model'
         model = torch.jit.script(model)
 
-    optimizer = create_optimizer_v2(model, **optimizer_kwargs(cfg=EasyDict({**cfg.train.lr, **cfg.train.optimizer})))
+    if cfg.train.optimizer.opt in "lion":
+        print("Lion activate")
+        optimizer = Lion(model.parameters(), lr=cfg.train.lr.lr, weight_decay=cfg.train.optimizer.weight_decay)
+    else:
+        optimizer = create_optimizer_v2(model,
+                                        **optimizer_kwargs(cfg=EasyDict({**cfg.train.lr, **cfg.train.optimizer})))
 
     resume_epochs = resume_checkpoint(model, optimizer, scaler, cfg.train.resume, cfg.train.resume_opt,
                                       cfg.local_rank) if cfg.train.resume else None
