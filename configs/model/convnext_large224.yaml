@@ -1,5 +1,5 @@
-model_name: regnety_008
-pretrained: False
+model_name: convnext_large_in22k
+pretrained: True
 
 bn_momentum:
 bn_eps:
