@@ -1,5 +1,5 @@
 model_name: convnext_tiny_384_in22ft1k
-pretrained: True
+pretrained: False
 
 bn_momentum:
 bn_eps:

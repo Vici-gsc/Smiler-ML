@@ -1,9 +1,9 @@
 defaults:
   - _self_
   - train: base_train
-  - dataset: korean_face_emotion
+  - dataset: korean_face_emotion384
   - info: info
-  - model: regnety_008
+  - model: convnext_tiny384
   - benchmark: benchmark
 
 name: experiment0

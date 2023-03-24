@@ -5,7 +5,7 @@ name: KoreanFaceEmotion
 root: /data/korean_emotion/Cropped
 
 in_channel: 3
-num_classes: 7
+num_classes: 5
 size: 384
 
 train: train
