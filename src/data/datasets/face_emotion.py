@@ -16,7 +16,8 @@ class KoreanFaceEmotion(Dataset):
         self.mode = mode
         self.transform = transform
 
-        self.classes = {c: i for i, c in enumerate(['natural', 'angry', 'embarrass', 'fear', 'happy', 'hurt', 'sad'])}
+        # self.classes = {c: i for i, c in enumerate(['natural', 'angry', 'embarrass', 'fear', 'happy', 'hurt', 'sad'])}
+        self.classes = {c: i for i, c in enumerate(['natural', 'angry', 'embarrass', 'happy', 'sad'])}
         self.x = list()
         self.y = list()
 

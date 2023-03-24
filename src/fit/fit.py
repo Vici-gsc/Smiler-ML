@@ -42,8 +42,8 @@ class Fit:
 
         self.losses = MeanMetric(compute_on_step=False).to(self.device)
         self.top1 = Accuracy(task='multiclass', compute_on_step=False, num_classes=self.num_classes).to(self.device)
-        self.top5 = Accuracy(task='multiclass', compute_on_step=False, num_classes=self.num_classes, top_k=5).to(
-            self.device)
+        # self.top5 = Accuracy(task='multiclass', compute_on_step=False, num_classes=self.num_classes, top_k=5).to(
+        #     self.device)
 
     def __call__(self, *args, **kwargs):
         for epoch in range(self.start_epoch, self.num_epochs):
@@ -177,18 +177,18 @@ class Fit:
     def _update_metric(self, loss, prob, target):
         self.losses.update(loss.item() / prob.size(0))
         self.top1.update(prob, target)
-        self.top5.update(prob, target)
+        # self.top5.update(prob, target)
 
     def _reset_metric(self):
         self.losses.reset()
         self.top1.reset()
-        self.top5.reset()
+        # self.top5.reset()
 
     def _metrics(self):
         return {
             'loss': self.losses.compute(),
             'top1': self.top1.compute() * 100,
-            'top5': self.top5.compute() * 100,
+            # 'top5': self.top5.compute() * 100,
         }
 
     def _print(self, metrics, epoch, i, max_iter, mode):

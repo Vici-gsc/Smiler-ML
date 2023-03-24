@@ -3,6 +3,6 @@ windows:
   - window_name: window
     layout: tiled
     panes:
-      - pt main.py model=regnety_008 gpus=[5] name=sgd0.1
-      - pt main.py model=regnety_008 gpus=[6] name=sgd0.0001 train.lr.lr=0.0001
-      - pt main.py model=regnety_008 gpus=[7] name=adamw5e-5 train.optimizer.opt=adamw train.lr.lr=5e-5
+#      - pt main.py model=convnext_tiny384 dataset=korean_face_emotion gpus=[5] name=adamw1e-3 train.optimizer.opt=adamw train.lr.lr=1e-3
+      - pt main.py model=convnext_tiny384 dataset=korean_face_emotion384 gpus=[8] name=scratchlion train/optimizer=lion train.lr.lr=1e-6
+      - pt main.py model=convnext_tiny384 dataset=korean_face_emotion384 gpus=[9] name=scratchadamw1e-3 train.optimizer.opt=adamw train.lr.lr=1e-3

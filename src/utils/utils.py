@@ -38,7 +38,6 @@ def model_tune(model, scaler, device, cfg):
         model = torch.jit.script(model)
 
     if cfg.train.optimizer.opt in "lion":
-        print("Lion activate")
         optimizer = Lion(model.parameters(), lr=cfg.train.lr.lr, weight_decay=cfg.train.optimizer.weight_decay)
     else:
         optimizer = create_optimizer_v2(model,
