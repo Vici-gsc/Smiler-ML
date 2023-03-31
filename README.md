@@ -1,8 +1,7 @@
-# Research Framework
+# Smiler-ML
+Facial emotion recognition model
 
-##### How to install hydra
-
-This project use [`hydra`](https://github.com/facebookresearch/hydra) library. So you need to install it. Please run below code.
+##### How to run
 ```bash
-pip install hydra-core --upgrade
+python main.py gpus=[0] model=convnext_tiny384 dataset=korean_face_emotion
 ```

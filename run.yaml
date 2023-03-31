@@ -3,6 +3,6 @@ windows:
   - window_name: window
     layout: tiled
     panes:
-#      - pt main.py model=convnext_tiny384 dataset=korean_face_emotion gpus=[5] name=adamw1e-3 train.optimizer.opt=adamw train.lr.lr=1e-3
-      - pt main.py model=convnext_tiny384 dataset=korean_face_emotion384 gpus=[8] name=scratchlion train/optimizer=lion train.lr.lr=1e-6
-      - pt main.py model=convnext_tiny384 dataset=korean_face_emotion384 gpus=[9] name=scratchadamw1e-3 train.optimizer.opt=adamw train.lr.lr=1e-3
+      - pt main.py model=convnext_tiny384 dataset=korean_face_emotion gpus=[0] name=adamw1e-3 train.optimizer.opt=adamw train.lr.lr=1e-3
+      - pt main.py model=convnext_tiny384 dataset=korean_face_emotion384 gpus=[1] name=scratchlion train/optimizer=lion train.lr.lr=1e-6
+      - pt main.py model=convnext_tiny384 dataset=korean_face_emotion384 gpus=[2] name=scratchadamw1e-3 train.optimizer.opt=adamw train.lr.lr=1e-3
